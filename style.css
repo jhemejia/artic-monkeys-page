@@ -108,6 +108,12 @@ select {
   min-height: calc(100vh - 250px);
 }
 
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 /* Hero Section - Updated to Flexbox */
 .hero {
   padding: 60px 20px;
@@ -150,6 +156,14 @@ select {
 }
 
 /* Biography Page */
+.biography-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .biography-section {
   padding: 20px 0;
 }
@@ -165,6 +179,8 @@ select {
 
 .bio-intro {
   display: flex;
+  margin: 0 auto;
+  width: 100%;
   gap: 30px;
   margin-bottom: 40px;
   background-color: #444;
@@ -173,7 +189,7 @@ select {
 }
 
 .bio-image {
-  flex: 0 0 40%;
+  width: 40%;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -205,6 +221,13 @@ select {
   padding: 30px;
   background-color: #444;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.bio-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .bio-section h3 {
@@ -228,8 +251,55 @@ select {
 }
 
 .biography-list li {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   line-height: 1.6;
+}
+
+.biography-list li h4 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.biography-list li p {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.biography-list li p strong {
+  color: #fff;
+  font-weight: bold;
+}
+
+.biography-list li p span {
+  display: block;
+  margin-top: 5px;
+  color: #ccc;
+  font-style: italic;
+}
+
+/* Special styling for achievements section */
+.bio-section:last-child .biography-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.bio-section:last-child .biography-list li {
+  background-color: #555;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 4px solid #ff6b6b;
+  transition: all 0.3s ease;
+}
+
+.bio-section:last-child .biography-list li:hover {
+  background-color: #666;
+  transform: translateY(-2px);
 }
 
 /* Gallery Page */
@@ -430,7 +500,7 @@ select {
   gap: 20px;
 }
 
-/* Semantic HTML styles for details/summary */
+/* details/summary */
 .events-month-group {
   background-color: #444;
   border-radius: 10px;
@@ -622,6 +692,26 @@ select {
   .bio-intro {
     flex-direction: column;
   }
+  .bio-image {
+    width: 100%;
+    flex: 1;
+  }
+
+  .biography-section h1 {
+    font-size: 2rem;
+  }
+
+  .bio-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .bio-section {
+    padding: 20px;
+  }
+
+  .biography-list li h4 {
+    font-size: 1.1rem;
+  }
 
   .footer-content {
     flex-direction: column;
@@ -670,6 +760,10 @@ select {
 }
 
 @media (max-width: 480px) {
+  .bio-image {
+    width: 100%;
+    flex: 1;
+  }
   .events-container {
     padding: 10px;
   }
