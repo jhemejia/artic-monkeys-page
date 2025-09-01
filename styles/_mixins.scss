@@ -1,0 +1,28 @@
+// =============================================================================
+// MIXINS
+// =============================================================================
+
+// Animation mixins
+@mixin fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@mixin fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@mixin fade-in-down {
+  animation: fadeInDown 0.5s ease-out;
+}
+
+@mixin fade-in-left {
+  animation: fadeInLeft 0.5s ease-out;
+}
+
+@mixin slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@mixin scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
