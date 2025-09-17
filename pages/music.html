@@ -7,25 +7,31 @@
     <link rel="me" href="mailto:jhemejia99@gmail.com" />
     <link rel="me" href="sms:+573185954326" />
     <link rel="stylesheet" href="../style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
   <body>
     <!-- Encabezado, navegación -->
-    <header class="header">
-      <div class="header-container">
-        <div class="logo">
-          <h1>Arctic Monkeys</h1>
+    <header class="header m-0 p-0">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid nav-bar d-flex md-justify-content-between justify-content-center align-items-center m-0 p-0 mx-2">
+          <div class="logo">
+            <h1 class="fs-1">Arctic Monkeys</h1>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end mx-4" id="navbarNavDropdown">
+            <ul class="navbar-nav nav-bar-list d-flex justify-content-between align-items-center">
+              <li class="nav-item"><a class="nav-link" href="../">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="./biography.html">Biography</a></li>
+              <li class="nav-item"><a class="nav-link" href="./tours.html">Tours</a></li>
+              <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="./galery.html">Gallery</a></li>
+              <li class="nav-item"><a class="nav-link" href="./music.html">Music</a></li>
+            </ul>
+          </div>
         </div>
-        <nav class="nav-bar">
-          <ul class="nav-bar-list">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="./biography.html">Biography</a></li>
-            <li><a href="./tours.html">Tours</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-            <li><a href="./galery.html">Gallery</a></li>
-            <li><a href="./music.html">Music</a></li>
-          </ul>
-        </nav>
-      </div>
+      </nav>
     </header>
 
     <!-- Contenido principal -->
@@ -34,7 +40,7 @@
         <!-- Hero Section -->
         <section class="music-hero">
           <div class="music-hero-content">
-            <h1>Discography</h1>
+            <h2 class="fs-2 text-center">Discography</h2>
             <p>
               Explore the evolution of Arctic Monkeys through their iconic
               albums and unforgettable tracks.
@@ -384,5 +390,6 @@
         <p>&copy; 2025 Arctic Monkeys. All rights reserved.</p>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>

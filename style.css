@@ -106,6 +106,17 @@ select {
   font-size: inherit;
 }
 
+h2 {
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: fadeInDown 0.5s ease-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
 .header {
   background-color: #1a1a1a;
   color: #ffffff;
@@ -117,24 +128,14 @@ select {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  min-height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .logo {
   padding: 20px 0;
 }
 .logo h1 {
-  font-size: 1.8rem;
   font-weight: bold;
   color: #ffffff;
   margin: 0;
+  margin-left: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: color 0.3s ease-in-out;
@@ -144,42 +145,39 @@ select {
   transform: scale(1.05);
 }
 
-.nav-bar {
-  padding: 20px 0;
-}
-.nav-bar .nav-bar-list {
+.nav-bar-list {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
   gap: 15px;
 }
-.nav-bar .nav-bar-list li {
+.nav-bar-list li {
   opacity: 0;
   animation: slideInRight 0.6s ease-out forwards;
 }
-.nav-bar .nav-bar-list li:nth-child(1) {
+.nav-bar-list li:nth-child(1) {
   animation-delay: 0.1s;
 }
-.nav-bar .nav-bar-list li:nth-child(2) {
+.nav-bar-list li:nth-child(2) {
   animation-delay: 0.2s;
 }
-.nav-bar .nav-bar-list li:nth-child(3) {
+.nav-bar-list li:nth-child(3) {
   animation-delay: 0.3s;
 }
-.nav-bar .nav-bar-list li:nth-child(4) {
+.nav-bar-list li:nth-child(4) {
   animation-delay: 0.4s;
 }
-.nav-bar .nav-bar-list li:nth-child(5) {
+.nav-bar-list li:nth-child(5) {
   animation-delay: 0.5s;
 }
-.nav-bar .nav-bar-list li:nth-child(6) {
+.nav-bar-list li:nth-child(6) {
   animation-delay: 0.6s;
 }
-.nav-bar .nav-bar-list li:nth-child(7) {
+.nav-bar-list li:nth-child(7) {
   animation-delay: 0.7s;
 }
-.nav-bar .nav-bar-list li a {
+.nav-bar-list li a {
   color: #ccc;
   text-decoration: none;
   font-weight: 500;
@@ -188,7 +186,7 @@ select {
   transition: all 0.3s ease-in-out;
   position: relative;
 }
-.nav-bar .nav-bar-list li a::after {
+.nav-bar-list li a::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -198,11 +196,11 @@ select {
   background-color: #444;
   transition: width 0.3s ease-in-out;
 }
-.nav-bar .nav-bar-list li a:hover {
+.nav-bar-list li a:hover {
   color: #ffffff;
   transform: translateY(-2px);
 }
-.nav-bar .nav-bar-list li a:hover::after {
+.nav-bar-list li a:hover::after {
   width: 100%;
 }
 
@@ -216,11 +214,11 @@ select {
 .main-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px;
 }
 
 .hero {
-  padding: 60px 20px;
+  padding: 20px;
 }
 .hero .hero-container {
   max-width: 1200px;
@@ -231,13 +229,11 @@ select {
 }
 .hero .hero-container .hero-content {
   flex: 1;
-  padding: 20px;
   animation: fadeInUp 0.5s ease-out;
   animation-delay: 0.3s;
   animation-fill-mode: both;
 }
 .hero .hero-container .hero-content h2 {
-  font-size: 2rem;
   font-weight: bold;
   color: #ffffff;
   margin-bottom: 20px;
@@ -277,20 +273,13 @@ select {
   max-width: 1000px;
   margin: 0 auto;
 }
-
-.biography-section {
-  padding: 20px 0;
-}
-.biography-section h1 {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 40px;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: fadeInDown 0.5s ease-out;
-  animation-delay: 0.2s;
-  animation-fill-mode: both;
+.biography-container .biography-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  width: 100%;
 }
 
 .bio-intro {
@@ -298,7 +287,6 @@ select {
   margin: 0 auto;
   width: 100%;
   gap: 30px;
-  margin-bottom: 40px;
   background-color: #444;
   border-radius: 10px;
   padding: 30px;
@@ -324,13 +312,11 @@ select {
   animation-delay: 0.8s;
   animation-fill-mode: both;
 }
-.bio-intro .bio-text h2 {
-  font-size: 2rem;
+.bio-intro .bio-text h3 {
   margin-bottom: 10px;
   color: #ffffff;
 }
 .bio-intro .bio-text .bio-subtitle {
-  font-size: 1.2rem;
   color: #ccc;
   margin-bottom: 20px;
   font-style: italic;
@@ -341,7 +327,7 @@ select {
 }
 
 .bio-section {
-  margin-bottom: 40px;
+  width: 100%;
   padding: 30px;
   background-color: #444;
   border-radius: 10px;
@@ -447,20 +433,6 @@ select {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.gallery-section {
-  padding: 20px 0;
-}
-.gallery-section h1 {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 20px;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: fadeInDown 0.5s ease-out;
-  animation-delay: 0.2s;
-  animation-fill-mode: both;
-}
 .gallery-section .gallery-intro {
   text-align: center;
   font-size: 1.2rem;
@@ -682,11 +654,17 @@ select {
   animation-delay: 1.1s;
   animation-fill-mode: both;
 }
+.unique-btn a {
+  color: #ffffff;
+}
 .unique-btn:hover {
   background-color: #ffffff;
   color: #1a1a1a;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.unique-btn:hover a {
+  color: #1a1a1a;
 }
 
 .form-group {
@@ -737,17 +715,6 @@ select {
 .events-header {
   text-align: center;
   margin-bottom: 40px;
-}
-.events-header h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #ffffff;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  animation: fadeInDown 0.5s ease-out;
-  animation-delay: 0.2s;
-  animation-fill-mode: both;
 }
 .events-header p {
   font-size: 1.2rem;
@@ -958,24 +925,9 @@ select {
   box-shadow: none;
 }
 
-.music-hero {
-  padding: 60px 20px;
-  text-align: center;
-}
 .music-hero .music-hero-content {
   max-width: 800px;
   margin: 0 auto;
-}
-.music-hero .music-hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #ffffff;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  animation: fadeInDown 0.5s ease-out;
-  animation-delay: 0.2s;
-  animation-fill-mode: both;
 }
 .music-hero .music-hero-content p {
   font-size: 1.3rem;
@@ -987,13 +939,15 @@ select {
 }
 
 .albums-section {
-  padding: 40px 0;
+  padding: 20px 0;
 }
 .albums-section .albums-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   margin-bottom: 60px;
+  width: 100%;
+  max-width: 100%;
 }
 .albums-section .albums-grid .album-card {
   background-color: #444;
@@ -1032,6 +986,7 @@ select {
 .albums-section .albums-grid .album-card .album-cover {
   position: relative;
   overflow: hidden;
+  max-width: 100% !important;
 }
 .albums-section .albums-grid .album-card .album-cover img {
   width: 100%;
@@ -1088,17 +1043,6 @@ select {
 
 .featured-songs {
   padding: 40px 0;
-}
-.featured-songs h2 {
-  font-size: 2.5rem;
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: fadeInDown 0.5s ease-out;
-  animation-delay: 0.2s;
-  animation-fill-mode: both;
 }
 .featured-songs .songs-grid {
   display: grid;
@@ -1176,23 +1120,41 @@ select {
     width: 100%;
     flex: 1;
   }
-  .biography-section h1 {
-    font-size: 2rem;
-  }
   .bio-text h2 {
     font-size: 1.5rem;
   }
   .bio-section {
     padding: 20px;
   }
+  .biography-list {
+    padding-left: 15px;
+  }
+  .biography-list li {
+    margin-bottom: 15px;
+  }
   .biography-list li h4 {
     font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .biography-list li p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .biography-list li p span {
+    margin-top: 3px;
+    font-size: 0.9rem;
+  }
+  .biography-list:last-child {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .biography-list:last-child li {
+    padding: 12px;
+    font-size: 0.95rem;
   }
   .footer-content {
     flex-direction: column;
-  }
-  .events-header h1 {
-    font-size: 2rem;
   }
   .event-card {
     flex-direction: column;
@@ -1232,7 +1194,7 @@ select {
   .events-container {
     padding: 10px;
   }
-  .events-header h1 {
+  .events-header h2 {
     font-size: 1.8rem;
   }
   .events-header p {
@@ -1254,19 +1216,71 @@ select {
   .event-card .event-title {
     font-size: 1.1rem;
   }
-  .event-card .music-hero-content h1 {
+  .event-card .music-hero-content h2 {
     font-size: 2rem;
   }
   .event-card .albums-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
+    padding: 0 10px;
+  }
+  .event-card .album-card {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
   }
   .event-card .album-card .album-cover img {
-    height: 250px;
+    height: 200px;
+  }
+  .event-card .album-card .album-info {
+    padding: 15px;
+  }
+  .event-card .album-card .album-info h3 {
+    font-size: 1.2rem;
+  }
+  .event-card .album-card .album-info .album-year {
+    font-size: 1rem;
+  }
+  .event-card .album-card .album-info .album-description {
+    font-size: 0.9rem;
+  }
+  .event-card .album-card .album-info .album-tracks h4 {
+    font-size: 1rem;
+  }
+  .event-card .album-card .album-info .album-tracks .track-list {
+    font-size: 0.85rem;
   }
   .event-card .songs-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+  .event-card .biography-list {
+    padding-left: 10px;
+  }
+  .event-card .biography-list li {
+    margin-bottom: 12px;
+  }
+  .event-card .biography-list li h4 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  .event-card .biography-list li p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .event-card .biography-list li p span {
+    margin-top: 2px;
+    font-size: 0.85rem;
+  }
+  .event-card .biography-list:last-child {
+    gap: 10px;
+  }
+  .event-card .biography-list:last-child li {
+    padding: 10px;
+    font-size: 0.9rem;
+    border-left-width: 3px;
   }
 }
 
