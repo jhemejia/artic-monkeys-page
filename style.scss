@@ -51,6 +51,7 @@ h2 {
   font-weight: bold;
   color: $text-light;
   margin-bottom: 10px;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
   @include fade-in-down;
