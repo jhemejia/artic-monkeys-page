@@ -511,7 +511,7 @@ function closeTicketModal() {
   }
 }
 
-function addTicketToCart() {
+async function addTicketToCart() {
   const selectedTicket = document.querySelector(".ticket-type.selected");
   const quantity = parseInt(document.getElementById("ticket-qty").value);
 
@@ -546,7 +546,7 @@ function addTicketToCart() {
 
   // Add to cart if cart exists
   if (typeof cart !== "undefined" && cart.addItem) {
-    cart.addItem(ticketProduct, quantity);
+    await cart.addItem(ticketProduct, quantity);
     closeTicketModal();
     showNotification("Tickets added to cart!", "success");
 

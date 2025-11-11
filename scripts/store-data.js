@@ -15,15 +15,22 @@ class ShoppingCart {
     }
   }
 
-  saveCart() {
-    try {
-      localStorage.setItem("arcticMonkeysCart", JSON.stringify(this.items));
-    } catch (error) {
-      console.error("Error saving cart to localStorage:", error);
-    }
+  async saveCart() {
+    return new Promise((resolve, reject) => {
+      try {
+        // Simulate async save operation
+        setTimeout(() => {
+          localStorage.setItem("arcticMonkeysCart", JSON.stringify(this.items));
+          resolve();
+        }, 0);
+      } catch (error) {
+        console.error("Error saving cart to localStorage:", error);
+        reject(error);
+      }
+    });
   }
 
-  addItem(product, quantity = 1, size = null) {
+  async addItem(product, quantity = 1, size = null) {
     const existingItem = this.items.find(
       (item) => item.id === product.id && item.size === size
     );
@@ -39,24 +46,24 @@ class ShoppingCart {
       });
     }
 
-    this.saveCart();
+    await this.saveCart();
     this.updateCartDisplay();
   }
 
-  removeItem(cartId) {
+  async removeItem(cartId) {
     this.items = this.items.filter((item) => item.cartId !== cartId);
-    this.saveCart();
+    await this.saveCart();
     this.updateCartDisplay();
   }
 
-  updateQuantity(cartId, quantity) {
+  async updateQuantity(cartId, quantity) {
     const item = this.items.find((item) => item.cartId === cartId);
     if (item) {
       if (quantity <= 0) {
-        this.removeItem(cartId);
+        await this.removeItem(cartId);
       } else {
         item.quantity = quantity;
-        this.saveCart();
+        await this.saveCart();
         this.updateCartDisplay();
       }
     }
@@ -73,9 +80,9 @@ class ShoppingCart {
     );
   }
 
-  clearCart() {
+  async clearCart() {
     this.items = [];
-    this.saveCart();
+    await this.saveCart();
     this.updateCartDisplay();
   }
 

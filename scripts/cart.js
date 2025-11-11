@@ -12,16 +12,17 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function initializeCartPage() {
-  // Add event listeners for cart actions
-  const checkoutBtn = document.getElementById("checkout-btn");
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener("click", () => {
-      window.location.href = "./checkout.html";
-    });
-  }
-
   // Add smooth animations for cart interactions
   addCartAnimations();
+}
+
+// Simple function to handle checkout button click
+function goToCheckout() {
+  if (typeof cart !== "undefined" && cart.items.length > 0) {
+    window.location.href = "./checkout.html";
+  } else {
+    alert("Your cart is empty. Please add items before checkout.");
+  }
 }
 
 function initializeCheckoutPage() {
@@ -83,7 +84,7 @@ function populateOrderItems() {
   )}`;
 }
 
-function handleCheckout(event) {
+async function handleCheckout(event) {
   event.preventDefault();
 
   if (cart.items.length === 0) {
@@ -114,11 +115,11 @@ function handleCheckout(event) {
   placeOrderBtn.textContent = "Processing...";
   placeOrderBtn.disabled = true;
 
-  setTimeout(() => {
+  setTimeout(async () => {
     alert(
       "Thank you for your purchase! This is a demo store, so no actual payment was processed."
     );
-    cart.clearCart();
+    await cart.clearCart();
     window.location.href = "./tours.html";
   }, 2000);
 }
@@ -172,27 +173,33 @@ function addCartAnimations() {
 }
 
 // Enhanced cart functionality
-function removeItemWithAnimation(cartId) {
+async function removeItemWithAnimation(cartId) {
   const cartItem = document
     .querySelector(`[onclick*="cart.removeItem(${cartId})"]`)
     .closest(".cart-item");
   if (cartItem) {
     cartItem.classList.add("removing");
-    setTimeout(() => {
+    setTimeout(async () => {
       // Call the original removeItem method directly
-      cart.items = cart.items.filter((item) => item.cartId !== cartId);
-      cart.saveCart();
-      cart.updateCartDisplay();
+      await cart.removeItem(cartId);
     }, 300);
   }
 }
 
 // Add cart persistence and recovery
-function saveCartState() {
+async function saveCartState() {
   if (typeof cart !== "undefined") {
-    cart.saveCart();
+    await cart.saveCart();
   }
 }
 
 // Save cart state before page unload
-window.addEventListener("beforeunload", saveCartState);
+window.addEventListener("beforeunload", (e) => {
+  // Use synchronous-like approach for beforeunload
+  if (typeof cart !== "undefined") {
+    // Fire and forget - can't await in beforeunload
+    cart
+      .saveCart()
+      .catch((err) => console.error("Error saving cart on unload:", err));
+  }
+});
